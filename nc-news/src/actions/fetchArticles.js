@@ -26,6 +26,7 @@ export default () => {
       dispatch(fetchArticlesRequest());
       return axios.get(`${API_URL}/articles`)
         .then(res => {
+          console.log('****',res.data)
           dispatch(fetchArticlesSuccess(res.data.articles));
         })
         .catch(error => {
