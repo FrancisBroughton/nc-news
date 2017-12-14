@@ -10,18 +10,29 @@ class Articles extends React.Component {
   }
 
   render() {
-    console.log(this.props)
+    console.log('hello', this.props)
     return (
       <div>
-      
-        <p>articles here</p>
+        <h2>hello</h2>
+
+       <p>{this.props.articles && this.props.articles.map((article, i) => {
+          return (
+            <ul>
+              <li>{article._id}</li>
+              <li>{article.body}</li>
+             
+            </ul>
+            
+          )
+        })}
+        </p> 
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  articles: state.data.payload,
+  articles: state.data,
   loading: state.data.loading,
   error: state.data.error
 });
