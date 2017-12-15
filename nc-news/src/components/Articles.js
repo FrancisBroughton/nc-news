@@ -20,9 +20,7 @@ class Articles extends React.Component {
             <ul>
               <li>{article._id}</li>
               <li>{article.body}</li>
-             
             </ul>
-            
           )
         })}
         </p> 
