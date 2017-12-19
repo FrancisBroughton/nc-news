@@ -1,10 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-
+import PT from "prop-types";
 import fetchArticles from "../actions/fetchArticles";
 
 class Articles extends React.Component {
-  
   componentDidMount() {
     this.props.fetchArticles();
   }
@@ -19,7 +18,12 @@ class Articles extends React.Component {
           return (
             <ul>
               <li>{article._id}</li>
+              <li>{article.title}</li>
               <li>{article.body}</li>
+              <li>{article.created_by}</li>
+              <li>{article.belongs_to}</li>
+              <li>{article.votes}</li>
+
             </ul>
           )
         })}
@@ -34,6 +38,13 @@ const mapStateToProps = state => ({
   loading: state.data.loading,
   error: state.data.error
 });
+
+Articles.propTypes = {
+    articles: PT.array.isRequired,
+    loading: PT.bool.isRequired,
+    error: PT.any,
+    fetchArticles: PT.func.isRequired
+  };
 
 const mapDispatchToProps = dispatch => ({
   fetchArticles: () => {
