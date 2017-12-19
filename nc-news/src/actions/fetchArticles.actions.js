@@ -5,7 +5,7 @@ import axios from 'axios';
 // });
 
 
-const API_URL = "https://olie-chan-nc-news.herokuapp.com";
+const API_URL = "https://northcoders-news-api.herokuapp.com/api";
 
 export const fetchArticlesRequest = () => ({
   type: types.FETCH_ARTICLES_REQUEST
@@ -24,7 +24,7 @@ export const fetchArticlesFailure = (error) => ({
 export default () => {
     return (dispatch) => {
       dispatch(fetchArticlesRequest());
-      return axios.get(`${API_URL}/api/articles`)
+      return axios.get(`${API_URL}/articles`)
         .then(res => {
           console.log('****',res.data)
           dispatch(fetchArticlesSuccess(res.data.articles));
