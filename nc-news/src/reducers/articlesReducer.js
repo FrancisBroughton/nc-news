@@ -16,7 +16,7 @@ export default (prevState = initialState, action) => {
     });
   case types.FETCH_ARTICLES_SUCCESS:
     return Object.assign({}, prevState, {
-      loading: false,
+      loading: true,
       error: null,
       data: action.payload
     });

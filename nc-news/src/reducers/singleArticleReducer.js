@@ -16,14 +16,14 @@ export default (prevState = initialState, action) => {
       });
     case types.FETCH_SINGLE_ARTICLE_SUCCESS:
       return Object.assign({}, prevState, {
-        loading: false,
+        loading: true,
         error: null,
         data: action.payload
       });
     case types.FETCH_SINGLE_ARTICLE_FAILURE:
       return Object.assign({}, prevState, {
         loading: false,
-        error: action.payload,
+        error: action.error,
         data: []
       });
     default:

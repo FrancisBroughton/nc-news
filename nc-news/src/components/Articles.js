@@ -2,7 +2,7 @@ import React from "react";
 import { connect } from "react-redux";
 import PT from "prop-types";
 import fetchArticles from "../actions/fetchArticles.actions";
-import { NavLink } from "react-router-dom"
+import { Link } from "react-router-dom"
 
 class Articles extends React.Component {
   componentDidMount() {
@@ -25,9 +25,9 @@ class Articles extends React.Component {
               <li>{article.belongs_to}</li>
               <li>{article.votes}</li>
               <div className="box">
-                <NavLink to={`/articles/${article._id}`} key={article._id}>
+                <Link to={`/articles/${article._id}`} key={article._id}>
                   {article.title}
-                </NavLink>
+                </Link>
               </div>
             </ul>
           )
@@ -40,13 +40,13 @@ class Articles extends React.Component {
 
 const mapStateToProps = state => ({
   articles: state.data,
-  // loading: state.data.loading,
-  error: state.data.error
+  loading: state.loading,
+  error: state.error
 });
 
 Articles.propTypes = {
     articles: PT.array.isRequired,
-    //loading: PT.bool.isRequired,
+    loading: PT.bool.isRequired,
     error: PT.any,
     fetchArticles: PT.func.isRequired
   };

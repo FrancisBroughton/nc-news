@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 
 class SingleArticle extends React.Component {
   componentDidMount() {
-    this.props.fetchSingleArticle(this.props.match.params.articles_id);
+    this.props.fetchSingleArticle(this.props.match.params.id);
   }
 
   render() { 
@@ -13,8 +13,9 @@ class SingleArticle extends React.Component {
       
       <div>
         <h1> article</h1>
-        <div>
-          {this.props.articles.map(article => {
+          <p>{this.props.article}</p>
+        {/* <div>
+          {this.props.articles && this.props.articles.map(article => {
             {
               if (article._id === this.props.match.params.articles_id) {
                 return (
@@ -33,26 +34,26 @@ class SingleArticle extends React.Component {
               }
             }
           })}
-        </div>
+        </div> */}
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  // comments: state.comments.data,
-  articles: state.articles.data,
-  // loading: state.data.loading,
-  // error: state.data.error
+  //comments: state.comments.data,
+  article: state.data,
+  loading: state.loading,
+  error: state.error
 });
 
 const mapDispatchToProps = dispatch => ({
   fetchSingleArticle: id => {
     dispatch(fetchSingleArticle(id));
-  },
-  fetchComments: id => {
-    // dispatch(fetchComments(id));
   }
+  // fetchComments: id => {
+  //   dispatch(fetchComments(id));
+  // }
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(SingleArticle);
