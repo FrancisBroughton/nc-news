@@ -7,7 +7,7 @@ import fetchSingleArticle, {
   fetchSingleArticleRequest,
   fetchSingleArticleSuccess,
   fetchSingleArticleFailure
-} from "../src/actions/SingleArticle.action";
+} from "../src/actions/fetchSingleArticle.action";
 
 const API_URL = "https://northcoders-news-api.herokuapp.com/api";
 const id = "583412925905f02e4c8e6e01";

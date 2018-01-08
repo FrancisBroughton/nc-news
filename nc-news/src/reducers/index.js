@@ -1,11 +1,15 @@
 import { combineReducers } from "redux";
 
-import articles from "./articles.reducer";
-import eachArticle from "./eachArticle.reducer";
+import articles from "./articlesReducer";
+import singleArticle from "./singleArticleReducer";
+import topics from "./topicsReducer";
 
 const reducer = combineReducers({
+
 articles,
-eachArticle,
+singleArticle,
+topics,
+
 
 });
 
